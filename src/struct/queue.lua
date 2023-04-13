@@ -88,26 +88,10 @@ end
 	local peek = queue:peek()
 	print(peek) -- > 1
 	```
-	
-	:::caution
-	If the queue is empty, then `queue:peek()` will throw an error that you'll need to make sure the queue isn't empty first
-	:::
-	example 
-	```lua
-	--..........
-	if queue:isEmpty() == false then
-		local peek = queue:peek()
-		print(peek) --> 1
-	end
-	--..........
-	```
 	This function take no parameter and return the first queued item
 	@return any
 ]=]
 function Queue:peek()
-	if self:isEmpty() then
-		error("Queue is empty")
-	end
 	return self.items[self.front]
 end
 
