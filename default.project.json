@@ -1,0 +1,13 @@
+{
+  "name": "Shinobi World",
+  "tree": {
+    "$className": "DataModel",
+    "ServerScriptService":{
+      "$className":"ServerScriptService",
+      "Modules":{
+        "$className":"Folder",
+        "$path": "src"
+      }
+    }
+  }
+}
