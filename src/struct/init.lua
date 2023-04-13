@@ -1,6 +1,6 @@
 
 return {
-    CoolDown   = require(script.CoolDown);
+    Debounce   = require(script.Debounce);
     LinkedList = require(script.LinkedList);
     queue      = require(script.queue);
     Tree       = require(script.Tree);
