@@ -21,11 +21,12 @@ function Queue.new()
 	setmetatable(queue, Queue)
 
 	queue.front = 0
-	queue.back = -1
+	queue.back  = -1
 	queue.items = {}
 
 	return queue
 end
+
 --[=[
 	@within Queue 
 	```lua
@@ -45,6 +46,7 @@ function Queue:enqueue(item)
 	self.back = self.back + 1
 	self.items[self.back] = item
 end
+
 --[=[
 	@within Queue 
 	```lua
@@ -120,6 +122,7 @@ end
 function Queue:isEmpty()
 	return self.front > self.back
 end
+
 --[=[
 	@within Queue 
 	```lua
