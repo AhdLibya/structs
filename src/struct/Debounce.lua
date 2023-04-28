@@ -1,3 +1,8 @@
+--[[
+	BY Ahdlibya
+	2023
+]]
+
 local function _isReady(self)
 	return (tick() - self._last_time :: number) >= (self._cooldown :: number)
 end
@@ -5,7 +10,7 @@ end
 local Debounce = {}
 Debounce.__index = Debounce
 
-function Debounce.new(cooldown: number, fn: (...any) -> ())
+function Debounce.new(cooldown: number, fn: (...any) -> ()?)
 	local debounce = {}
 	setmetatable(debounce, Debounce)
 
@@ -30,6 +35,10 @@ function Debounce:Trigger(...)
 	return self._action(...)
 end
 
+function Debounce:SetCallBack(fn: (...any) -> ())
+	self._action = fn
+end
+
 function Debounce:Triggerif(cond: boolean , ...)
 	if not _isReady(self) or not cond then
 		return false
@@ -39,6 +48,10 @@ function Debounce:Triggerif(cond: boolean , ...)
 		return false
 	end
 	return self._action(...)
+end
+
+function Debounce:Destroy()
+	table.clear(self)
 end
 
 return Debounce
